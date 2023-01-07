@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slanding.org</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <style>
+
+        *{
+            font-family: 'poppins', sans-serif;
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            /* text-transform: capitalize; */
+
+        }
+
+        header{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: green;
+              position: fixed;
+              top: 0; left: 0;
+              z-index: 1000;
+              padding: 1rem 5rem;
+              width: 100%;
+        }
+
+        header .logo{ 
+            color: white;
+            font-size: large;
+        }
+
+        header .navbar ul{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        header .navbar ul li{
+            margin: 0 1rem;
+        }
+
+        header .navbar ul li a{
+            color: white;
+        }
+
+        header .navbar ul li a:hover{
+            color: indigo;
+        }
+
+        header .fa-bars{
+            color: green;
+            cursor: pointer;
+            display: none;
+        }
+
+        .home{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url(watercolor-nature-background-with-leaves_52683-59449.webp);
+            background-size: cover;
+            background-position: center;
+             
+        }
+
+        .home .content{
+            text-align: center;
+            padding: 1rem ;
+        }
+
+        .home .content h1{
+            color: green;
+            font-size: 4rem;
+        }
+
+        .home .content p{
+            color:black;
+            padding: 1rem 0;
+            width: 40rem;
+        }
+
+        .btn{
+            position: relative;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            margin: 20px 10px;
+            font-weight: bold;
+            border: 2px solid rgb(0, 128, 0);
+            background:transparent;
+            cursor: pointer;
+            overflow: hidden;
+            text-transform: capitalize;
+            border-radius: 50px;
+        }
+
+        span{
+            background:green;
+            height: 100%;
+            width: 0;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        .btn:hover{
+            
+            border-radius: 50px;
+            background-color: green;
+            color: white;
+        }
+
+        .heading{
+            text-align: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: black;
+            padding: 1rem;
+            padding-top: 7rem;
+        }
+
+        .heading i{
+            color: green;
+            font-size: 1rem;
+        }
+
+        .about .row{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            /* flex-wrap: wrap; */
+        }
+
+        .about .row .image{
+            /* margin-right: 0; */
+            /* flex: 1px; */
+            flex: 1 1 40rem;
+
+            padding: 2rem;
+        }
+
+        .about .row .image img{
+            width: 100%;
+        }
+
+        .about .row .content{
+            flex: 1 1 40rem;
+            padding: 2px;
+        }
+
+        .about .row .content h3{
+            color: green;
+            padding: 1rem;
+        }
+
+        .about .row .content p{
+            color: black;
+            padding: 1rem 0;
+        }
+
+        .about .box-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about .box-container .box p{
+            color: white;
+        }
+
+        .about .box-container .box{
+
+            padding: 2rem 1rem;
+            text-align: center;
+            border: 1px solid green;
+            flex: 1 1 15rem;
+            margin: 1rem;
+            border-radius: 50px;
+            background-color: green;
+        }
+
+        .about .box-container .box i{
+            color: white;
+        }
+
+        .about .box-container .box h3{
+            color: white;
+        }
+
+        /* .navbar .menu .menucontect{
+            width: 200px;
+            height: 70vh;
+            float: right;
+            font-family: sans-serif;
+            font-size: 25px;
+            font-weight: bold;
+            position: relative;
+        } */
+        .arrow{
+            height: 0;
+            width: 0;
+            position:absolute;
+            border-left:  20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid white;
+            left: 580px;
+            display: none;
+            top: 50px;
+        }
+
+        .formm{
+            display: none;
+            /* text-transform: none; */
+            margin-right: 530px;
+            position:absolute;
+            /* background: lightgoldenrodyellow; */
+            width: 380px;
+            height: 450px;
+            top: 70px;
+            border-radius: 30px;
+            /* border-bottom: 5px solid blue;  */
+            backdrop-filter: blur(60px);
+
+        }
+
+        .formm .formie{
+            width: 350px;
+            margin:0 auto;
+            margin-top: 10px;
+            /* display: flex; */
+        }
+
+        /* .formm .formie .headd{
+            color: white;
+            text-align: center;
+            font-size: 25px;
+        } */
+        .formm .headd{
+            color:black;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .formm .headdd{
+            color: black;
+            font-size: x-small;
+            text-align: center;
+            margin: 20px;;
+            /* margin: px; */
+        }
+
+        .formm .tap{
+            /* margin-left: 60px; */
+            font-size: small;
+            /* margin-top: 10px; */
+            color: black;
+            margin-left: 110px;
+
+        }
+
+        .formm .ta{
+            color: black;
+            font-size: small;
+
+            /* margin-left: 150px;/ */
+        }
+
+        .formm .in{
+            color: black;
+            margin-left: 60px;
+            font-size: small;
+        }
+
+        .formm .fields{
+
+            margin-left: 25px;
+            border-radius: 10px;
+            margin-top: 1px;
+            height: 4vh;
+            width: 85%;
+            border-color: white;
+            border-style:groove;
+            /* box-shadow: 5px, 15px, rebeccapurple; */
+        }
+        ::placeholder{
+            color: green;
+            text-align: center;
+            font-size: smaller;
+        }
+
+        .formm .btn{
+            /* margin-bottom: 5px; */
+            /* align-items: center;
+            text-align: center; */
+            /* color: black;
+            background-color: teal;
+            border-color: cadetblue;
+            border-radius: 20px;
+            margin-top: 8px;
+            margin-left: 120px;
+            height: 40px;
+            width: 100px;
+            margin-bottom: 5px; */
+            font-weight: thin;
+            height:35px;
+            color: white;
+            background-color: green;
+            justify-content: center;
+            border-color: white;
+            padding-top: 1px;
+            width: 100px;
+            padding-bottom: 2px;
+            margin-left: 110px;
+        }
+        .formm .btn .textt{
+            color: black;
+        }
+
+        .formm .btn:hover{
+            background-color: white;
+            color: black;
+        }
+
+        /* .formm .btn .textt{
+            align-items: center;
+            align-self: center;
+            text-align: center;
+            margin-bottom: 5px;
+        } */
+
+        .formm .taaa{
+            color: white;
+            margin-left: 150px;
+        }
+
+        .container .tophead{
+            color: white;
+            margin-left: 50px;
+        }
+
+        .containeer{
+            /* background-color: white; */
+            top: 50px;
+            margin-right: 530px;
+            position:absolute;
+            background: steelblue;
+            width: 380px;
+            height: 200px;
+            top: 70px;
+            border-radius: 15px;
+        }
+
+        .containeer .forrmm{
+            width: 350px;
+            margin:0 auto;
+            margin-top: 10px;
+        }
+
+        .forrmm .headd{
+            color: white;
+            font-size: x-small;
+            text-align: center;
+            margin: 20px;;
+        }
+
+        .forrmm .tap{
+            /* margin-left: 60px; */
+            font-size: small;
+            /* margin-top: 10px; */
+            color: white;
+            margin-left: 110px;
+
+        }
+
+        .forrmm .ta{
+            color: white;
+            font-size: small;
+
+            /* margin-left: 150px;/ */
+        }
+
+        .forrmm .in{
+            color: white;
+            margin-left: 60px;
+            font-size: small;
+        }
+
+        .forrmm .fields{
+            box-shadow: 4px 4px;
+            height: 45px;
+            border-radius: 50px;
+            margin-left: 50px;
+            margin-top: 10px;
+            border-style:none ;
+            border-color: gray;
+            margin-left: 25px;
+            /* border-radius: 10px; */
+            margin-top: 1px;
+            /* height: 4vh; */
+            width: 85%;
+            border: none;
+        }
+        ::placeholder{
+            color: green;
+            text-align: center;
+            font-size: smaller;
+        }
+
+        .forrmm .btn{
+            height:40px;
+            /* margin-bottom: 5px; */
+            /* align-items: center;
+            text-align: center; */
+            /* color: black;
+            background-color: teal;
+            border-color: cadetblue;
+            border-radius: 20px;
+            margin-top: 8px;
+            margin-left: 120px;
+            height: 40px;
+            width: 100px;
+            margin-bottom: 5px; */
+            color: black;
+            background-color: white;
+            justify-content: center;
+            border-color: white;
+            padding-top: 1px;
+            width: 100px;
+            padding-bottom: 2px;
+            margin-left: 110px;
+        }
+        .forrmm .btn .textt{
+            color: black;
+        }
+
+        /* .formm .btn .textt{
+            align-items: center;
+            align-self: center;
+            text-align: center;
+            margin-bottom: 5px;
+        } */
+
+        .forrmm .taaa{
+            color: white;
+            margin-left: 150px;
+        }
+
+        /* login */
+
+        .arroww{
+            display: none;
+            height: 0;
+            width: 0;
+            position:absolute;
+            border-left:  20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid white;
+            /* backdrop-filter: blur(10px); */
+            left: 680px;
+            top: 50px;
+        }
+
+        .containneer{
+            display: none;
+            /* display: none; */
+            /* top: 100px; */
+            margin-right: 330px;
+            position:absolute;
+            /* background-color: lightgoldenrodyellow; */
+            /* background-color: white; */
+            /* backface-visibility: hidden; */
+            /* opacity: 90%; */
+            /* background: steelblue; */
+            width: 380px;
+            height: 400px;
+            top: 70px;
+            border-radius: 15px;
+            backdrop-filter: blur(60px);
+            /* box-shadow: inset 0px 10px 10px gray; */
+        }
+
+        .containneer .forrmm{
+            /* display: none */
+            width: 350px;
+            margin: 10px;
+        }
+
+        .forrmm h2{
+            color: black;
+            font-size: 35px;
+            text-align: center;
+            margin: 20px;;
+        }
+/* 
+        .forrmm h2:hover{
+            color: green;
+            font-size: 35px;
+            text-align: center;
+            margin: 20px;;
+        } */
+
+        .forrmm .labels{
+            color: black;
+            margin-left: 60px;
+            font-size: small;
+            /* margin-top: 20px; */
+        }
+
+        .forrmm .inputs{
+
+            box-shadow: 4px 4px;
+            height: 45px;
+            border-radius: 50px;
+            margin-left: 50px;
+            margin-top: 10px;
+            border-style:none ;
+            border-color: gray;
+        }
+
+        .forrmm .btnn{
+            border-radius: 50px;
+            color: black;
+            background-color: green;
+            justify-content: center;
+            /* border-color: white; */
+            border-style: none;
+            padding-top: 1px;
+            width: 100px;
+            height: 35px;
+            margin: 35px;
+            padding-bottom: 2px;
+            margin-left: 120px;
+        }
+
+        .forrmm .btnn .linki{
+            color: black;
+        }
+
+        .forrmm .btnn:hover{
+            background-color: white;
+        }
+
+        .forrmm .links{
+            margin-left: 90px;
+            color: black;
+        }
+
+        .forrmm .links:hover{
+            color: blue;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- header section -->
+    <header>
+    <a href="#" class="logo"><i class="fas fa-seedling"></i>SaveNature.org</a>
+        
+    <nav class="navbar">
+        <ul>
+            <li><aside class="menu">
+                <div class="menucontent">
+                    <a href="#" id="reg">register</a> | <a href="#" id="opp">login </a>
+                </div>
+                <div class="arrow">
+
+                </div>
+            </aside></li>
+            <div class="formm">
+                <form class="formie">
+                    <h2 class="headd">Sign up</h2>
+                    <div class="form">
+            
+                        <label for="fname" class="in">First Name</label><br>
+                        <input type="text" name="fname" class="fields"><br>
+                
+                        <label for="lname" class="in">Last Name</label><br>
+                        <input type="text" name="lname" class="fields"><br>
+                
+                        <label for="email" class="in">email</label><br>
+                        <input type="text" placeholder="xyz@xxx.com" class="fields" name="enail"><br>
+                
+                        <label for="pass" class="in">password</label><br>
+                        <input type="password" name="pass" class="fields"><br>
+                
+                        <label for="pass" class="in">Confirm</label><br>
+                        <input type="=password" name="repass" class="fields"><br>
+                        
+                        <button class="btn"><a href="main.html" class="textt">signup</a></button><br>
+
+                        <a href="https://www.facebook.com/" class="tap" target="_blank">facebook</a>
+                        <a href="https://www.facebook.com/" class="ta" target="_blank">insta</a><br>
+                        
+                        <!-- <h3 class="headdd">already have a account?</h3> -->
+                        <!-- <a href="login.html" class="taaa">login</a> -->
+                        </div>
+                       
+                </form>
+            </div>
+            <aside>
+                <div class="arroww">
+
+                </div>
+            </aside>
+
+            <div class="containneer">
+                
+                <div class="forrmm">
+                    <form class="foormie">
+                        <h2 id >Login</h2>
+                        <label for="Email" class="labels">Email Id</label>
+                        <input type="emai" required class="inputs">
+            
+                        <label for="password" class="labels">password</label>
+                        <input type="password" required class="inputs">
+            
+                        <button type="submit" class="btnn"><a class="linki" href="main.html">login</a></button>
+                        <!-- <a href="signup.html" class="links">signup</a> -->
+                        <a href="#" class="links">forget password </a>
+                    </form>
+                </div>
+            </div>
+            <li><a href="aboutus.html">about</a></li>
+            <li><a href="">services</a></li>
+            <li><a href="">projects</a></li>
+            <li><a href="">donate</a></li>
+        </ul>
+    </nav>
+
+
+    </header>
+    <!-- header ending -->
+
+
+
+
+
+    <!-- home section starts here -->
+    <section class="home" id="main.html">
+        <div class="content">
+            <h1>Save earth save life</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptas quas vero sequi quo labore error dolorem vel soluta ipsam non distinctio rem, est illum qui numquam neque beatae commodi rerum!</p>
+            <button type="button" class="btn">explore</button>
+        </div>
+    </section>
+    <!-- home section ends here -->
+
+
+
+
+    <!-- about section starts from here -->
+    <section class="about">
+        <h1 class="heading"><i class="fas fa-quote-left"></i>about us <i  class="fas fa-quote-right"></i></h1>
+        
+        <div class="row">
+            
+            <div class="image">
+            <img src="SAVING-NATURE-LOGO-WITH-TAG-LINE-e1565707209117.jpg" alt="">
+
+            </div>
+
+            <div class="content">
+                <h3>together we save the planet</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum voluptatibus labore ipsam cumque aut pariatur, veniam nemo fuga laboriosam
+                 ad repudiandae suscipit, voluptatem temporibus veritatis ullam qui. Possimus, molestias vel.</p>
+                 <a href=""><button class="btn">learn more</button></a>
+            </div>
+        </div>
+
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-users"></i>
+                <h3>1200+</h3>
+                <h3>volunteers</h3>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-tree"></i>
+                <h3>2000+</h3>
+                <h3>trees planted</h3>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-paw"></i>
+                <h3>500+</h3>
+                <h3>paws rescued</h3>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-donate"></i>
+                <h3>350+</h3>
+                <h3>donators   </h3>
+            </div>
+        </div>
+
+    </section>
+    <!-- about section ends here -->
+
+
+
+    <!-- services start here -->
+    <section class="about">
+        <h1 class="heading"><i class="fas fa-quote-left"></i>Our services <i  class="fas fa-quote-right"></i></h1>
+        
+       
+        <div class="box-container">
+            
+
+            <div class="box">
+                <i class="fas fa-tree"></i>
+                <h3>tree Saving</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur corporis voluptate possimus facilis, mollitia, libero minus voluptatum neque quod, adipisci laudantium ea rem odio dolores modi dolore numquam? Expedita, fugiat.</p>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-paw"></i>
+                <h3>Animal Saving</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos aliquid quos sint. Deleniti, assumenda eveniet ex natus ipsum voluptates, quae corporis modi pariatur, dolores id saepe facilis excepturi eius illo?</p>
+
+            </div>
+
+            <div class="box">
+                <i class="fas fa-seedling"></i>
+                <h3>Planting</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis corrupti et exercitationem! Eos blanditiis consequatur commodi consequuntur odit beatae optio hic distinctio, at, asperiores quos repudiandae expedita suscipit impedit eveniet.</p>
+                
+            </div>
+        </div>
+
+    </section>
+    <!-- services ends here -->
+
+
+
+
+
+    <!-- our project starts from here -->
+    <section class="project">
+        <h1 class="heading"><i class="fas fa-quote-left"></i>Our projects<i  class="fas fa-quote-right"></i></h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="people-planting-tree-countryside_23-2149401186.webp" alt="">
+            </div>
+
+            <!-- <div class="box">
+                <img src="watercolor-nature-background-with-leaves_52683-59449.webp" alt="">
+            </div> -->
+
+            <!-- <div class="box">
+                <img src="tree-grows-coin-glass-jar-with-copy-space_35913-2508.webp" alt="">
+            </div> -->
+
+        </div>
+
+    </section>
+    <!-- our project ends here -->
+
+
+
+    
+
+    <!-- donations start from here -->
+
+
+
+    <!-- donations ends here -->
+<script type="text/javascript">
+ $(document).ready(function(){
+    var arroww =$(".arrow");
+    var forrm = $(".formm");
+    var status = false;
+    $("#reg").click(function(event){
+        event.preventDefault();
+        if(status == false){
+            arroww.fadeIn();
+            forrm.fadeIn();
+            status=true;
+        }
+        else{
+            arroww.fadeOut();
+            forrm.fadeOut();
+            status=false;
+        }
+    })
+ })
+
+ $(document).ready(function(){
+    var arr = $(".arroww");
+    var cont = $(".containneer");
+    var logform = $(".forrmm");
+    var status = false;
+     $("#opp").click(function(event){
+        event.preventDefault();
+        if (status==false){
+            arr.fadeIn();
+            cont.fadeIn();
+            logform.fadeIn();
+            status=true;
+        }
+        else{
+            arr.fadeOut();
+            cont.fadeOut();
+            logform.fadeOut();
+            status= false;
+        }
+
+     })
+ })
+</script>
+
+    
+</body>
+</html>
+
+
+

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-style: normal;
+            font-family: 'poppins', sans-serif;
+            /* background-color: teal; */
+        }
+
+            footer{
+                margin-top: 50px;
+                width: 100%;
+                background-color: green;
+                color: black;
+                font-size: medium;
+                line-height: normal;
+                padding: 50px 0 50px ;
+                color: white;
+                text-decoration: none;
+            }
+
+            .row{
+                width: 85%;
+                margin: auto;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+
+            .col h3{
+                /* margin-top: 50px; */
+                flex-basis: 25%;
+                /* padding: 10px; */
+                margin-bottom: 20px;
+                color: white;
+            }
+
+            .container a{
+                margin: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: green;
+                margin-top: 50px;
+                /* color: white; */
+            }
+
+            .maps{
+                margin-left: 150px;
+            }
+
+            .news{
+                border-radius: 50px;
+                border-style: none;
+                height: 5vh;
+            }
+
+            .news:hover{
+                background-color: red;
+                color: white;
+                border-radius: 50px;
+                border-style: none;
+                height: 5vh;
+            }
+
+            .btn{
+                background-color: black;
+                color: white;
+                width: 100px;
+                height: 5vh;
+                border-radius: 50px;
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        
+    <div class="container">
+        <a style="text-decoration: none;" href="customer.html"><h1>Save Nature</h1></a>
+        <!-- <ul>
+            <li><a href="main.html">home</a></li>
+            <li><a href="contactus.html">contact</a></li>
+        </ul> -->
+    </div>
+
+    <p class="maps"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.565897534163!2d73.07163471518143!3d33.72018008069751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf8d766402f1%3A0x772f112e08aed554!2sBeverly%20Centre!5e0!3m2!1sen!2s!4v1673098006051!5m2!1sen!2s" width="90%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+    </header>
+
+
+    <footer>
+        <div class="row">
+            <div class="col">
+                  <h2>SaveNature.org</h2>
+            </div>
+            
+            <div class="col">
+                <h3>Office</h3>
+                <p>f6 markaz</p>
+                <p>islamabad, pakistan</p>
+                <p>xyz@gmail.com</p>
+                <p>215161461</p>
+                <p></p>
+                
+            </div>
+            <div class="col">
+                <h3>quick links</h3>
+                <a class="links" style="text-decoration: none;" href="https://www.facebook.com/">facebook</a><br>
+                <a class="links" style="text-decoration: none;"  href="https://www.linkedin.com/in/bakhtawar-nasir-783223213/">linkedin</a>
+            <!-- /  <p><a href="https://www.linkedin.com/campaignmanager/">campaigns</a></p> -->
+            </div>
+            <div class="col">
+                <h3>newsletter</h3>
+                <form >
+                    <!-- <i class="far fa-envelope"></i> -->
+                 <input class="news" type="email" placeholder="xyz@gmai.com" required>
+                 <button class="btn" type="submit">submit</button>
+                </form>
+            </div>
+
+
+        </div>
+    </footer>
+    
+</body>
+</html>
